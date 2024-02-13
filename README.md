@@ -58,3 +58,6 @@ ssh-keygen -t rsa -C "your email address"
 
 #to test the ssh connection
 ssh -T git@github.com
+
+#set default branch name as part of the initialization
+git init -b <default branch name> <new branch name>
