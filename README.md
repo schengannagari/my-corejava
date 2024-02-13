@@ -44,3 +44,5 @@ git reset --hard <file name>
 #To discard changes in working directory
 git checkout -- <file name>
 
+#Remove the file
+git rm <file name>
