@@ -61,3 +61,6 @@ ssh -T git@github.com
 
 #set default branch name as part of the initialization
 git init -b <default branch name> <new branch name>
+
+#to set origin
+git push -u origin main
