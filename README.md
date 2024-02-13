@@ -46,3 +46,10 @@ git checkout -- <file name>
 
 #Remove the file
 git rm <file name>
+
+#Add all the modified files
+git add -u/--update
+
+#Rename/move the file
+git mv <file name> <destination filename>
+
