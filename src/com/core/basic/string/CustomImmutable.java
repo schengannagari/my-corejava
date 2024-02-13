@@ -1,5 +1,6 @@
 package com.core.basic.string;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +18,7 @@ final class Immutable {
 
     public Immutable(final String name, final List<String> stringList) {
         this.name = name;
-        this.stringList = stringList;
+        this.stringList = new ArrayList<>(stringList);
     }
 
     public String getName() {
