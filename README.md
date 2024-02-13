@@ -1,7 +1,6 @@
 # my-corejava
-Core java concepts
 
-git basic commands
+#git basic commands
 git config --global user.name "<user name>"
 git config --global user.email "<user email>"
 
@@ -39,4 +38,9 @@ git push origin <origin branch name>
 git pull
 
 
+#To unstage the staged file
+git reset --hard <file name>
+
+#To discard changes in working directory
+git checkout -- <file name>
 
