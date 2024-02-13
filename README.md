@@ -53,3 +53,8 @@ git add -u/--update
 #Rename/move the file
 git mv <file name> <destination filename>
 
+#generating the SSH key
+ssh-keygen -t rsa -C "your email address"
+
+#to test the ssh connection
+ssh -T git@github.com
