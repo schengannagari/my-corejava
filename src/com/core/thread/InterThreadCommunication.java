@@ -11,16 +11,16 @@ public class InterThreadCommunication {
 }
 
 class Util {
-    private boolean flag = Boolean.FALSE;
+    private boolean flag = false;
     synchronized public void displayNumber() {
         for (int i = 65; i < 91; i++) {
             System.out.print(i + "\t");
-            flag = Boolean.TRUE;
+            flag = true;
             this.notify();
             try {
                 this.wait();
             } catch (InterruptedException ex) {
-                ex.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
     }
@@ -31,11 +31,11 @@ class Util {
                 try {
                     this.wait();
                 } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
             }
             System.out.println((char)i);
-            flag = Boolean.FALSE;
+            flag = false;
             this.notify();
         }
     }
