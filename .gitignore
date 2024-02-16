@@ -27,3 +27,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+## ignore Intellij workspace files ##
+.idea/
+Lab.iml
