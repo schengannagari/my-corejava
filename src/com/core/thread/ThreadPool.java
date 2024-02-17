@@ -48,6 +48,8 @@ class Pool {
         if (threads.size() < 10) {
             threads.add(thread);
             return true;
+        } else {
+            thread = null;
         }
         return false;
     }
