@@ -10,7 +10,7 @@ public class ThreadExecutorExample {
         ExecutorService executorService = Executors.newFixedThreadPool(batchSize);
         for (int i = 0; i < 10; i++) {
             BatchJob batchJob = new BatchJob("Job "+i);
-            executorService.submit(batchJob);
+            executorService.execute(batchJob);
         }
 
         executorService.shutdown();
