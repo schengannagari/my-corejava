@@ -1,99 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Basic Commands</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-size: 1.1em;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-<body>
+# my-corejava
 
-    <h1>my-corejava</h1>
+#git basic commands
+git config --global user.name "<user name>"
+git config --global user.email "<user email>"
 
-    <h2>Git Basic Commands</h2>
+#to list all the global configurations
+git config --global --list
 
-    <pre><code>git config --global user.name "&lt;user name&gt;"</code></pre>
-    <pre><code>git config --global user.email "&lt;user email&gt;"</code></pre>
+#To list all the configuration both global & user level
+git config --list
 
-    <h3>To list all the global configurations:</h3>
-    <pre><code>git config --global --list</code></pre>
+#This file contains all of the configuration information.
+git ~/.gitconfig
 
-    <h3>To list all the configurations (both global & user level):</h3>
-    <pre><code>git config --list</code></pre>
+#The git repository will be initialized with the specified branch name by using this command.
+git init <branch name>
 
-    <h3>This file contains all of the configuration information:</h3>
-    <pre><code>git ~/.gitconfig</code></pre>
+#to rename the branch
+git branch -M <new branch name>
 
-    <h3>The git repository will be initialized with the specified branch name by using this command:</h3>
-    <pre><code>git init &lt;branch name&gt;</code></pre>
+#This will link with you git hub repository.
+git remote add origin <git hub repository URL>
 
-    <h3>To rename the branch:</h3>
-    <pre><code>git branch -M &lt;new branch name&gt;</code></pre>
+#To check the status of the branch
+git status
 
-    <h3>This will link with your GitHub repository:</h3>
-    <pre><code>git remote add origin &lt;github repository URL&gt;</code></pre>
+#to add the untracked files/modified files to staging
+git add <file(s) names>
 
-    <h3>To check the status of the branch:</h3>
-    <pre><code>git status</code></pre>
+#Commit the files into local repository
+git commit -m "comment"
 
-    <h3>To add the untracked/modified files to staging:</h3>
-    <pre><code>git add &lt;file(s) names&gt;</code></pre>
+#push the local changes into the remote repository
+git push origin <origin branch name>
 
-    <h3>Commit the files into the local repository:</h3>
-    <pre><code>git commit -m "comment"</code></pre>
+#to get the latest code changes
+git pull
 
-    <h3>Push the local changes into the remote repository:</h3>
-    <pre><code>git push origin &lt;origin branch name&gt;</code></pre>
 
-    <h3>To get the latest code changes:</h3>
-    <pre><code>git pull</code></pre>
+#To unstage the staged file
+git reset --hard <file name>
 
-    <h3>To unstage the staged file:</h3>
-    <pre><code>git reset --hard &lt;file name&gt;</code></pre>
+#To discard changes in working directory
+git checkout -- <file name>
 
-    <h3>To discard changes in the working directory:</h3>
-    <pre><code>git checkout -- &lt;file name&gt;</code></pre>
+#Remove the file
+git rm <file name>
 
-    <h3>Remove the file:</h3>
-    <pre><code>git rm &lt;file name&gt;</code></pre>
+#Add all the modified files
+git add -u/--update
 
-    <h3>Add all the modified files:</h3>
-    <pre><code>git add -u/--update</code></pre>
+#Rename/move the file
+git mv <file name> <destination filename>
 
-    <h3>Rename/move the file:</h3>
-    <pre><code>git mv &lt;file name&gt; &lt;destination filename&gt;</code></pre>
+#generating the SSH key
+ssh-keygen -t rsa -C "your email address"
 
-    <h3>Generating the SSH key:</h3>
-    <pre><code>ssh-keygen -t rsa -C "your email address"</code></pre>
+#to test the ssh connection
+ssh -T git@github.com
 
-    <h3>To test the SSH connection:</h3>
-    <pre><code>ssh -T git@github.com</code></pre>
+#set default branch name as part of the initialization
+git init -b <default branch name> <new branch name>
 
-    <h3>Set default branch name as part of the initialization:</h3>
-    <pre><code>git init -b &lt;default branch name&gt; &lt;new branch name&gt;</code></pre>
-
-    <h3>To set origin:</h3>
-    <pre><code>git push -u origin main</code></pre>
-
-</body>
-</html>
+#to set origin
+git push -u origin main
