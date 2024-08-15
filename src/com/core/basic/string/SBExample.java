@@ -4,6 +4,7 @@ public class SBExample {
     private static final String str = "Java";
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder(str);
+        StringBuilder sb2 = new StringBuilder(str);
         StringBuffer buffer = new StringBuffer(str);
         System.out.println("StringBuilder:\t"+ sb);
         System.out.println("StringBuffer:\t"+ buffer);
