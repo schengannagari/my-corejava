@@ -33,8 +33,17 @@ public class DeadLockExample {
             }
         });
 
+        System.out.println("Started!");
+
         thread1.start();
         thread2.start();
+
+        try {
+            System.out.println("Processing...");
+            Thread.currentThread().join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("Done!");
 
