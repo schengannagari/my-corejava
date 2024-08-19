@@ -54,7 +54,7 @@ public class DeadLock {
     }
 
     public static void acquireLocks(Lock lock1, Lock lock2) {
-        boolean firstLockAquired = false;
+        boolean firstLockAquired;
         boolean secondLockAquired = false;
         while (true) {
             firstLockAquired = lock1.tryLock();
@@ -70,7 +70,6 @@ public class DeadLock {
             if (firstLockAquired) {
                 lock1.unlock();
             }
-            firstLockAquired  = false;
         }
     }
 }
@@ -97,9 +96,9 @@ class Account {
     }
 
     public void transferAmount(final Account account, final double amount) {
-        if (account.getBalance() > amount) {
-            this.deposit(amount);
-            account.withdraw(amount);
+        if (this.getBalance() > amount) {
+            this.withdraw(amount);
+            account.deposit(amount);
         }
     }
 }
