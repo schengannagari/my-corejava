@@ -24,7 +24,7 @@ public class Manager {
             System.out.println("\tNo");
         }
 
-        System.out.print("Is both str2 and str4 are same?");
+        System.out.print("Is both str1 and str4 are same?");
         if (str2 == str4) {
             System.out.println("\tYes");
         } else {

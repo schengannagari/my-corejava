@@ -11,7 +11,7 @@ public class Manager2 {
 
         String reversedString = str.chars().mapToObj(c -> String.valueOf((char)c)).collect(Collectors.joining());
         String reversed = str.chars().mapToObj(c -> String.valueOf((char)c)).collect(Collectors.collectingAndThen(Collectors.toList(), list -> {Collections.reverse(list); return String.join("", list);}));
-        String reversedString1 = "Hello World".chars().mapToObj(ch -> String.valueOf((char)ch)).collect(Collectors.collectingAndThen(Collectors.toList(), list -> {Collections.reverse(list); return String.join("", list);}));
+        String reversedString1 = "Hello World".chars().mapToObj(String::valueOf).collect(Collectors.collectingAndThen(Collectors.toList(), list -> {Collections.reverse(list); return String.join("", list);}));
         System.out.println("Reversed String1:\t"+reversedString1);
         System.out.println("Reversed String:\t"+reversedString);
         System.out.println("reversed:\t"+ reversed);

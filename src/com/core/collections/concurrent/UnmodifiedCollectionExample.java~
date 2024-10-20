@@ -30,6 +30,5 @@ public class UnmodifiedCollectionExample {
                 stringSet.add("4");
             }
         }
-        System.out.println(stringSet);
     }
 }

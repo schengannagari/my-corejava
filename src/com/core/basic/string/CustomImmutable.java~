@@ -41,6 +41,14 @@ final class Immutable {
         this.stringList = new ArrayList<>(stringList);
     }
 
+    private boolean isExists(final String name, final List<String> stringList) {
+        return this.name.contains(name) && isSameStringList(stringList);
+    }
+
+    private boolean isSameStringList(final List<String> stringList) {
+        return new HashSet<>(stringList).containsAll(this.stringList);
+    }
+
     public String getName() {
         return this.name;
     }
