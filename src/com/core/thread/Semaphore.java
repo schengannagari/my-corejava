@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Semaphore {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 10; i++) {
             executor.submit(() -> {
                 Connection.getConnection().connect();
             });
@@ -25,7 +25,7 @@ class Connection {
 
     private int count;
 
-    private final java.util.concurrent.Semaphore semaphore = new java.util.concurrent.Semaphore(10);
+    private final java.util.concurrent.Semaphore semaphore = new java.util.concurrent.Semaphore(1);
     private static final Connection connection = new Connection();
     private Connection() {
 
@@ -41,19 +41,15 @@ class Connection {
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-        synchronized(this) {
-            count++;
-            System.out.println("Current count:\t"+count);
-        }
+        System.out.println(Thread.currentThread().getName());
+        count++;
+        System.out.println("Current count:\t"+count);
         try {
             Thread.sleep(2000);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-
-        synchronized(this) {
-            count--;
-        }
+        count--;
         semaphore.release();
     }
 }

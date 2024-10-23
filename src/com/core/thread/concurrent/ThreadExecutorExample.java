@@ -1,26 +1,36 @@
 package com.core.thread.concurrent;
 
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadExecutorExample {
     public static void main(String[] args) {
-        final int batchSize = 5;
-        ExecutorService executorService = Executors.newFixedThreadPool(batchSize);
-        for (int i = 0; i < 10; i++) {
-            BatchJob batchJob = new BatchJob("Job "+i);
-            executorService.execute(batchJob);
+        final int batchCount = 5;
+        final int orders = 103;
+        final int batchSize = orders / batchCount;
+        int[] batches = new int[batchCount];
+        int remainder = orders % batchCount;
+        for (int i = 0; i < batchCount; i++) {
+            if (i < remainder) {
+                batches[i] = batchSize + 1;
+            } else {
+                batches[i] = batchSize;
+            }
         }
-
-        executorService.shutdown();
-
-        try {
+        System.out.println(Arrays.toString(batches));
+        try (ExecutorService executorService = Executors.newFixedThreadPool(batchSize)) {
+            for (int batch : batches) {
+                BatchJob batchJob = new BatchJob("Job " + batch);
+                executorService.execute(batchJob);
+            }
+            executorService.shutdown();
             if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
                 executorService.shutdownNow();
             }
         } catch (InterruptedException e) {
-           Thread.currentThread().interrupt();
+            Thread.currentThread().interrupt();
         }
     }
 }
