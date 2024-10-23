@@ -1,7 +1,7 @@
 package com.core.thread;
 
 public class VolatileExample {
-    static volatile boolean flag = true;
+    static boolean flag = true;
     public static void main(String[] args) {
         new Thread(() -> {
             while (flag) {
@@ -23,8 +23,4 @@ public class VolatileExample {
             flag = false;
         }, "Second-Thread").start();
     }
-}
-
-class Flag {
-    public boolean flag = true;
 }
